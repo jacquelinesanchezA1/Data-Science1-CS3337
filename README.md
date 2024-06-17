@@ -19,5 +19,5 @@ Day 2 (06 04 24) Brief intro to the two types of overall learning technique, sup
     - Unsupervised Learning Techniques: Data that does not have any labels. Learning is based more in attributes of the data. 
 
 
-    Day 3 (06 05 24)
+Day 3 (06 05 24)
     
