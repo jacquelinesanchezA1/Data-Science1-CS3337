@@ -1,11 +1,10 @@
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # 1. creating ds
-#Sample data: hours studied and pass/fail outcome
+# Sample data: hours studied and pass/fail outcome
 data = {
     'hours_studied': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     'pass': [0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
@@ -30,6 +29,7 @@ model.fit(X_train, y_train)
 
 # 4. Make predictions
 y_pred = model.predict(X_test)
+
 
 # 5. Evaluate model
 
