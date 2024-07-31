@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.naive_bayes import CategoricalNB
 from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
 
 # Creating the dataset
 data = {
@@ -22,9 +23,16 @@ for column in df.columns:
 X = df[['Hair', 'Gives_Birth', 'Warm-blooded']]
 y = df['Mammal']  # target variable
 
+# Splitting the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
 # Creating and training the Naive Bayes Model
 model = CategoricalNB()
-model.fit(X, y)
+model.fit(X_train, y_train)
+
+# Evaluating the model on the test set
+accuracy = model.score(X_test, y_test)
+print(f'Accuracy: {accuracy}')
 
 # Example animal to classify
 new_animal = pd.DataFrame({
