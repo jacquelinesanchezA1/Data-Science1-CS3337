@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.naive_bayes import CategoricalNB
 from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
 
 # Creating the dataset
 data = {
@@ -21,6 +22,10 @@ for column in df.columns:
 # Splitting features and labels
 X = df[['Hair', 'Gives_Birth', 'Warm-blooded']]
 y = df['Mammal']  # target variable
+
+
+# Splitting the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Creating and training the Naive Bayes model
 model = CategoricalNB()
@@ -44,3 +49,4 @@ predicted_labels = label_encoders['Mammal'].inverse_transform(predictions)
 # Printing the classifications
 for i, animal in new_animals.iterrows():
     print(f'New animal {i+1} with features {animal.to_dict()} is classified as: {predicted_labels[i]}')
+
